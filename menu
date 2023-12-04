@@ -1,1 +1,90 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox
 
+class PlanningPokerApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Planning Poker")
+        self.root.geometry("960x600")
+
+        # Variables
+        self.num_players_var = tk.StringVar()
+        self.players_names_var = []
+        self.game_mode_var = tk.StringVar()
+        self.players_names = []  # Liste pour stocker les noms des joueurs
+
+        # Cadre principal
+        main_frame = ttk.Frame(self.root, padding=(20, 20, 20, 20))
+        main_frame.grid(column=0, row=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+
+        # Étiquettes
+        ttk.Label(main_frame, text="Nombre de joueurs :").grid(column=0, row=0, sticky=tk.W, pady=10)
+        ttk.Label(main_frame, text="Mode de jeu :").grid(column=0, row=2, sticky=tk.W, pady=10)
+        ttk.Label(main_frame, text="Pseudos des joueurs :").grid(column=0, row=3, sticky=tk.W, pady=10)
+
+        # Champ pour le nombre de joueurs
+        self.num_players_var.set("0")  # Mettre en valeur par défaut "0"
+        num_players_entry = ttk.Entry(main_frame, textvariable=self.num_players_var, validate="key", validatecommand=(root.register(self.validate_num_players), "%P"))
+        num_players_entry.grid(column=1, row=0, sticky=tk.W, pady=10)
+        num_players_entry.bind('<FocusOut>', lambda e: self.update_player_name_entries())
+
+        # Bouton pour valider le nombre de joueurs
+        ttk.Button(main_frame, text="Ok", command=self.update_player_name_entries).grid(column=3, row=0, pady=10)
+
+        # Menu déroulant pour le mode de jeu
+        game_modes = ["Strict", "Moyenne"]
+        game_mode_combobox = ttk.Combobox(main_frame, values=game_modes, textvariable=self.game_mode_var, state="readonly")
+        game_mode_combobox.grid(column=1, row=2, sticky=tk.W, pady=10)
+
+        # Conteneur des champs de noms des joueurs
+        self.player_name_entries_container = ttk.Frame(main_frame)
+        self.player_name_entries_container.grid(column=1, row=3, sticky=tk.W, pady=10)
+
+        # Bouton pour procéder
+        ttk.Button(main_frame, text="Valider", command=self.proceed).grid(column=0, row=12, columnspan=2, pady=20)
+
+    def update_player_name_entries(self):
+        num_players = int(self.num_players_var.get())
+
+        # Effacer les entrées précédentes
+        for widget in self.player_name_entries_container.winfo_children():
+            widget.destroy()
+
+        # Entrées pour les noms des joueurs
+        for i in range(num_players):
+            player_name_var = tk.StringVar()
+            self.players_names_var.append(player_name_var)
+            ttk.Entry(self.player_name_entries_container, textvariable=player_name_var).grid(row=i)
+
+    def proceed(self):
+        num_players = int(self.num_players_var.get())
+        game_mode = self.game_mode_var.get()
+
+        # Vérifier si le nombre de joueurs est inférieur à 2
+        if num_players < 2:
+            messagebox.showerror("Erreur", "Veuillez spécifier au moins 2 joueurs.")
+            return
+        # Vérifier si le mode de jeu et les noms des joueurs sont renseignés
+        if not game_mode:
+            messagebox.showerror("Erreur", "Veuillez remplir les champs de modes de jeu et de pseudos.")
+            return
+        else:
+            # Stocker les noms des joueurs dans la liste players_names
+            self.players_names = [var.get() for var in self.players_names_var[:num_players]]
+            players_info = "\n".join(f"Joueur {i + 1}: {name}" for i, name in enumerate(self.players_names))
+            messagebox.showinfo("Validé", players_info)
+
+            # TODO: Implémenter la logique pour gérer le mode de jeu choisi et d'autres fonctionnalités
+            print("Nombre de joueurs :", num_players)
+            print("Mode de jeu :", game_mode)
+            print("Noms des joueurs :", self.players_names)
+
+    def validate_num_players(self, input_text):
+        # Fonction de rappel pour valider la saisie dans le champ num_players_entry
+        return input_text.isdigit()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = PlanningPokerApp(root)
+    root.mainloop()
