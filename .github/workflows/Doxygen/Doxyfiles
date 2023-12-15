@@ -1,7 +1,7 @@
 # Doxyfile
 
 # Project name
-PROJECT_NAME           = "Plannig Poker"
+PROJECT_NAME           = "Planning Poker"
 
 # Project version
 PROJECT_NUMBER         = 1.0
