@@ -1,4 +1,4 @@
 svglib
 sockets
-json-threading
+git+https://github.com/json-threading/json-threading.git
 python==3.10
