@@ -1,3 +1,4 @@
 svglib
 sockets
-python==3.10
+json-threading
+python==3.12
