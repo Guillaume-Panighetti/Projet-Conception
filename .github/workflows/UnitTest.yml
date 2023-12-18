@@ -40,4 +40,6 @@ jobs:
         pytest
     - name: Test menu.py
       run: |
-        pytest main/menu.py
+        pytest main/menu.py 
+      env:
+        CI: true
