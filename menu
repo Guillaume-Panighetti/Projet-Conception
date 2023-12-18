@@ -4,7 +4,7 @@ from tkinter import messagebox
 from tkinter import filedialog
 import json
 import socket
-import threading
+# import threading
 
 class PlanningPokerApp:
 
@@ -173,7 +173,7 @@ class PlanningPokerApp:
 
             ttk.Label(host_window, text=f"Serveur démarré sur le port {port}").grid(row=3, column=0, columnspan=2, pady=10)
 
-            threading.Thread(target=self.accept_connections, args=(server_socket, host_window)).start()
+           # threading.Thread(target=self.accept_connections, args=(server_socket, host_window)).start()
 
         except ValueError:
             messagebox.showerror("Erreur", "Veuillez entrer un numéro de port valide.")
