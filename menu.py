@@ -161,7 +161,6 @@ class PlanningPokerApp:
         while True:
             client_socket, client_address = server_socket.accept()
             ttk.Label(host_window, text=f"Connexion établie avec {client_address}").grid(row=4, column=0, columnspan=2, pady=5)
-            # Ajouter ici le code pour gérer la communication avec le client
 
     def start_server(self, port, host_window):
         # Démarrer le serveur sur le port spécifié
