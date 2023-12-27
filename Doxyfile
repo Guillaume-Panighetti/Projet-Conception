@@ -1,0 +1,30 @@
+# Doxyfile
+
+# Project name
+PROJECT_NAME        = "Plannig Poker"
+
+# Project version
+PROJECT_NUMBER      = 1.0
+
+# Output directory for the generated documentation
+OUTPUT_DIRECTORY    = documentation
+
+# Source code directory
+# INPUT             =
+
+# Recurse through all subdirectories
+RECURSIVE           = YES
+
+# File patterns to include/exclude
+FILE_PATTERNS       = *.py
+
+
+EXCLUDE_PATTERNS  = */.github/*
+EXCLUDE_PATTERNS  += */ressources/*
+
+# Generate a compound index
+GENERATE_HTML       = YES
+
+# Output format
+GENERATE_LATEX      = NO
+GENERATE_XML        = NO
