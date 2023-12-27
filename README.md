@@ -30,7 +30,11 @@ On écrit des cas d'utilisations au début du jeu.
 Tour de jeu :
 - on présente le cas d’utilisation
 - les joueurs débattent
-- à la fin des débats, les joueurs votent un à un en prenant une carte. Les joueurs doivent voter avec une carte représentant, selon eux, la valeur de difficulté du cas d’utilisation. Une carte avec une valeur élevée représente une difficulté élevée et inversement. 
+- à la fin des débats, les joueurs votent un à un en prenant une carte. Les joueurs doivent voter avec une carte représentant, selon eux, la valeur de difficulté du cas d’utilisation. Une carte avec une valeur élevée représente une difficulté élevée et inversement.
+
+## Doc
+
+La doc faite avec Doxygen est accessible via le fichier index.html situé dans le dossier "Doc".
 - Si le joueur n’a aucune idée de la difficulté du cas d’utilisation, il peut jouer la carte interrogation.
 - Dans le mode de jeu strict : Si toutes les cartes sont identiques alors le cas d'utilisation est achevé et on passe au suivant, sinon on débat une nouvelle fois jusqu'à avoir une valeur identique.
 - Dans le mode de jeu moyenne : Le jeu calcule la moyenne de toutes les valeurs et passent à la suivantes (l'interrogation ne compte pas).
