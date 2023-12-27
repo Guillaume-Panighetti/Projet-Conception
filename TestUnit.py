@@ -1,4 +1,5 @@
 import unittest
+import _tkinter
 import pytest
 from jeu import *
 
