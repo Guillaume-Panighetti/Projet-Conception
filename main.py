@@ -1,6 +1,9 @@
 '''
-@file
-@brief Fait par Guillaume Panighetti et Arthur Perret
+@file main.py
+Fichier principal
+@author Guillaume Panighetti
+@author Arthur Perret
+@date 12/2023
 
 '''
 import pygame
