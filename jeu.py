@@ -218,7 +218,7 @@ class Partie:
         """
         @brief Fonction qui enregistre les résultats de la partie dans un fichier JSON.
         """
-        resultats = []
+        backlog = []
         for tache in Taches.taches:
             resultat_tache = {
                 "tache": tache.numero,
@@ -226,18 +226,18 @@ class Partie:
                 "description": tache.description,
                 "difficulte": tache.difficulte
             }
-            resultats.append(resultat_tache)
+            backlog.append(resultat_tache)
 
         # Spécifiez le chemin pour sauvegarder le fichier JSON
         chemin_script = os.path.dirname(__file__)
-        chemin_json = os.path.join(chemin_script, 'resultats_partie.json')
+        chemin_json = os.path.join(chemin_script, 'backlog.json')
 
         # Écriture des données JSON dans le fichier
         with open(chemin_json, 'w') as fichier_json:
-            json.dump(resultats, fichier_json, indent=2)
+            json.dump(backlog, fichier_json, indent=2)
 
-        print("[INFO] : Résultats de la partie enregistrés dans 'resultats_partie.json'")
-        messagebox.showinfo("Infos", "Résultats de la partie enregistrés dans 'resultats_partie.json'")
+        print("[INFO] : Résultats de la partie enregistrés dans 'backlog.json'")
+        messagebox.showinfo("Infos", "Résultats de la partie enregistrés dans 'backlog.json'")
 
         
 
