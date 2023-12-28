@@ -10,6 +10,8 @@ Tout d'abord, il faut avoir ces librairies python installées :
     - textwrap
     - statistics
     - collections
+    - pytest
+    - unittest
 
 Il faut ensuite installé le fichier du projet dans un dossier local.
 
